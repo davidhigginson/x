@@ -159,3 +159,61 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+// AJAX Post Filter
+
+function ajax_filter_posts_scripts() {
+  // Enqueue script
+  wp_register_script('afp_script', get_template_directory_uri() . '/js/ajax-filter-posts.js', false, null, false);
+  wp_enqueue_script('afp_script');
+
+  wp_localize_script( 'afp_script', 'afp_vars', array(
+        'afp_nonce' => wp_create_nonce( 'afp_nonce' ), // Create nonce which we later will use to verify AJAX request
+        'afp_ajax_url' => admin_url( 'admin-ajax.php' ),
+      )
+  );
+}
+add_action('wp_enqueue_scripts', 'ajax_filter_posts_scripts', 100);
+
+// Script for getting posts
+function ajax_filter_get_posts( $taxonomy ) {
+
+  // Verify nonce
+  if( !isset( $_POST['afp_nonce'] ) || !wp_verify_nonce( $_POST['afp_nonce'], 'afp_nonce' ) )
+    die('Permission denied');
+
+  $taxonomy = $_POST['taxonomy'];
+
+  // WP Query
+  $args = array(
+		'category_name' => $taxonomy,
+		'tag' => $taxonomy,
+    'post_type' => 'post',
+    'posts_per_page' => 10,
+  );
+  echo $taxonomy;
+  // If taxonomy is not set, remove key from array and get all posts
+  if( !$taxonomy ) {
+    unset( $args['tag'] );
+  }
+
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+	<div class="grid-25 tablet-grid-33 mobile-grid-50">
+	<a href="<?php the_permalink(); ?>">
+	<?php  if ( has_post_thumbnail() ) { $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),’thumbnail’ ); echo '<img width="100%" src="' . $image_src[0] . '">'; } ?>
+	<span><?php the_title(); ?></span>
+	</a>
+	</div>
+
+  <?php endwhile; ?>
+  <?php else: ?>
+    <h2>No posts found</h2>
+  <?php endif;
+
+  die();
+}
+
+add_action('wp_ajax_filter_posts', 'ajax_filter_get_posts');
+add_action('wp_ajax_nopriv_filter_posts', 'ajax_filter_get_posts');

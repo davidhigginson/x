@@ -31,10 +31,12 @@ function usp_login_form() {
 	
 	<style>
 		.usp-login #tab2_login, .usp-login #tab3_login { display: none; }
+
+		.usp-login { font-family: 'Work Sans';}
 		
 		.usp-login { width: 370px; overflow: hidden; margin: 50px auto; padding: 10px; color: #333; font-size: 12px; line-height: 16px; text-shadow: 0 0 1px #fff; }
 		.usp-login h1 { margin: 20px 0 10px 20px; font: 400 32px/32px sans-serif; -webkit-font-smoothing: antialiased; }
-		.usp-login h3 { margin: 0; border: 0 none; font-size: 14px; line-height: 14px; }
+		.usp-login h3 { margin: 0; border: 0 none; font-size: 14px; line-height: 14px; font-weight: normal; }
 		.usp-login p { margin: 10px 0; color: #333; }
 		
 		.usp-login .tabs_login { float: left; margin: 0; padding: 0; list-style-type: none; }
@@ -100,14 +102,13 @@ function usp_login_form() {
 				
 				<?php else : ?>
 				
-				<h3><?php esc_html_e('Have an account?', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Log in or sign up! It&rsquo;s fast &amp; free!', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Log in or sign up to upload work', 'usp-pro'); ?></h3>
 				
 				<?php endif; ?>
 				
 				<form method="post" action="<?php echo home_url(); ?>/wp-login.php">
 					<div class="username">
-						<label for="log"><?php esc_html_e('Username', 'usp-pro'); ?>: </label>
+						<label for="log"><?php esc_html_e('Email', 'usp-pro'); ?>: </label>
 						<input name="log" id="log" type="text" value="">
 					</div>
 					<div class="password">
@@ -128,19 +129,19 @@ function usp_login_form() {
 				</form>
 			</div>
 			<div id="tab2_login" class="tab_content">
-				<h3><?php esc_html_e('Register for this site!', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Sign up now for the good stuff.', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Register an account', 'usp-pro'); ?></h3>
+				<p><?php esc_html_e('Sign up using your University email.', 'usp-pro'); ?></p>
 				<form method="post" action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>">
 					<div class="username">
 						<label for="user_login_register"><?php esc_html_e('Username', 'usp-pro'); ?>: </label>
-						<input name="user_login" id="user_login_register" type="text" value="">
+						<input name="user_login" id="user_login_register" type="text" value="" placeholder="John Doe">
 					</div>
 					<div class="password">
 						<label for="user_email"><?php esc_html_e('Your Email', 'usp-pro'); ?>: </label>
-						<input name="user_email" id="user_email" type="text" value="">
+						<input name="user_email" id="user_email" type="text" value="" placeholder="xx15yy@leeds.ac.uk">
 					</div>
 					<div class="login_fields">
-						<input type="submit" name="user-submit" value="<?php esc_attr_e('Sign up!', 'usp-pro'); ?>" class="user-submit">
+						<input type="submit" name="user-submit" value="<?php esc_attr_e('Sign up', 'usp-pro'); ?>" class="user-submit">
 						<input type="hidden" name="redirect_to" value="<?php echo $redirect_register; ?>">
 						<input type="hidden" name="user-cookie" value="1">
 						<?php do_action('register_form'); ?>
@@ -171,7 +172,6 @@ function usp_login_form() {
 	<div id="usp-login" class="usp-login">
 		<div class="user-logged-in">
 			<h3><?php esc_html_e('Welcome, ', 'usp-pro'); echo $user; ?></h3>
-			<div class="user-icon"><?php echo get_avatar($id, 60); ?></div>
 			<div class="user-info">
 				<p><?php esc_html_e('Congratulations, you&rsquo;re logged in.', 'usp-pro'); ?></p>
 				<p>

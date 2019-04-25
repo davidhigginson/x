@@ -1448,9 +1448,7 @@ function usp_login_required_message() {
 	
 	$url = apply_filters('usp_require_login_url', wp_login_url());
 	
-	$message  = '<p>'. esc_html__('Please', 'usp');
-	$message .= ' <a href="'. esc_url($url) .'">'. esc_html__('log in', 'usp') .'</a> ';
-	$message .= esc_html__('to submit content!', 'usp') .'</p>';
+	$message  = '<p>'. esc_html__('Please log in to submit content', 'usp');
 	
 	$message = apply_filters('usp_require_login', $message);
 	
