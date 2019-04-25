@@ -14,6 +14,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="grid-container">
 		<div class="site-info">
 <!-- 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'crossroad' ) ); ?>">
 				<?php
@@ -28,6 +29,7 @@
 				?>
 		</div><!-- .site-info -->
 		<p>Made by UoL G&CD class of 2019</p>
+</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -2541,7 +2541,7 @@ function get_the_post_navigation( $args = array() ) {
 	$navigation = '';
 
 	$previous = get_previous_post_link(
-		'<div class="nav-previous">%link</div>',
+		'<div class="nav-previous"><p>Previous</p>%link</div>',
 		$args['prev_text'],
 		$args['in_same_term'],
 		$args['excluded_terms'],
@@ -2549,7 +2549,7 @@ function get_the_post_navigation( $args = array() ) {
 	);
 
 	$next = get_next_post_link(
-		'<div class="nav-next">%link</div>',
+		'<div class="nav-next"><p>Next</p>%link</div>',
 		$args['next_text'],
 		$args['in_same_term'],
 		$args['excluded_terms'],

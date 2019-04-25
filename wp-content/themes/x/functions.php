@@ -187,7 +187,6 @@ function ajax_filter_get_posts( $taxonomy ) {
   // WP Query
   $args = array(
 		'category_name' => $taxonomy,
-		'tag' => $taxonomy,
     'post_type' => 'post',
     'posts_per_page' => 10,
   );
@@ -217,3 +216,9 @@ function ajax_filter_get_posts( $taxonomy ) {
 
 add_action('wp_ajax_filter_posts', 'ajax_filter_get_posts');
 add_action('wp_ajax_nopriv_filter_posts', 'ajax_filter_get_posts');
+
+// FILESIZE LIMIT
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );

@@ -71,14 +71,14 @@ else :
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
 		<fieldset class="usp-title">
-			<label for="user-submitted-title"><?php esc_html_e('Post Title', 'usp'); ?></label>
-			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-title"><?php esc_html_e('Submission Title', 'usp'); ?></label>
+			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Submission Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_tags'] == 'show' || $usp_options['usp_tags'] == 'optn') { ?>
 		
 		<fieldset class="usp-tags">
-			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
-			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-tags"><?php esc_html_e('Submission Tags', 'usp'); ?></label>
+			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Submission Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['custom_field'] == 'show' || $usp_options['custom_field'] == 'optn') { ?>
 		
@@ -95,9 +95,9 @@ else :
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
 		
 		<fieldset class="usp-category">
-			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
+			<label for="user-submitted-category"><?php esc_html_e('Select your course', 'usp'); ?></label>
 			<select id="user-submitted-category" name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; ?> class="usp-select">
-				<option value=""><?php esc_html_e('Please select a category..', 'usp'); ?></option>
+				<option value=""><?php esc_html_e('Please select a course..', 'usp'); ?></option>
 				<?php foreach($usp_options['categories'] as $categoryId) { $category = get_category($categoryId); if (!$category) { continue; } ?>
 				
 				<option value="<?php echo $categoryId; ?>"><?php $category = get_category($categoryId); echo sanitize_text_field($category->name); ?></option>
@@ -132,7 +132,7 @@ else :
 			</div>
 			<?php } else { ?>
 				
-			<label for="user-submitted-content"><?php esc_html_e('Post Content', 'usp'); ?></label>
+			<label for="user-submitted-content"><?php esc_html_e('Submission Description', 'usp'); ?></label>
 			<textarea id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
 			<?php } ?>
 			

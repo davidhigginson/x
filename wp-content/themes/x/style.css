@@ -624,15 +624,15 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: black;
 }
 
 a:visited {
-	color: purple;
+	color: black;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color:grey;
 }
 
 a:focus {
@@ -649,8 +649,8 @@ a:hover, a:active {
 
 .site {
 	margin: 0 auto;
-	max-width: 1280px;
-	padding: 0 10px;
+	max-width: 1480px;
+	padding: 0;
 }
 
 .site-main .comment-navigation, .site-main
@@ -933,12 +933,14 @@ object {
 .gallery-caption {
 	display: block;
 }
-/* DAVES TEMP CSS */
+/* DAVES CSS */
 
 .header-outer {
 	display: flex;
 	align-items: center;
-	background-color: white;
+	position: relative;
+	z-index: 1;
+	/* background-color: white; */
 }
 
 /* NAV */
@@ -995,6 +997,20 @@ object {
 }
 
 /* Small menu. */
+
+.menu-toggle {
+	display: block;
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	font-size: 1.2em;
+	top:90px;
+	text-decoration: underline;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -1009,6 +1025,11 @@ object {
 	}
 }
 
+.main-navigation .toggled .menu ul {
+	margin-top:40px;
+	text-align: center;
+}
+
 .site-branding {
 	flex-grow:1;
 	display:flex;
@@ -1019,6 +1040,7 @@ object {
  	font-size: 4em;
 	font-weight: 500;
 	text-align: center;
+	width:100%;
 	margin: 0;
 	color: black;
 	font-family: 'Darius';
@@ -1030,9 +1052,10 @@ object {
  	text-underline: none;
  }
 
- @media all and (min-width: 300px) {
+ @media all and (min-width: 600px) {
 	.site-title {
 		text-align: left;
+		width: auto;
 		display: inline-block;
 	}
 }
@@ -1043,7 +1066,7 @@ object {
 	 text-align: center;
  }
 
- @media all and (min-width: 300px) {
+ @media all and (min-width: 600px) {
 	.site-description {
 		display: inline-block;
 		flex: 1;
@@ -1061,3 +1084,138 @@ object {
 	color:black;
 	text-decoration:none;
 }
+
+.hero {
+	height: 90vh;
+	overflow:hidden;
+}
+
+.hero img {
+	position: absolute;
+	margin: 0 auto;
+	left: 50%;
+	min-width: 800px;
+	min-height:800px;
+	height: 80vh;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index:0;
+}
+
+.hero h2 {
+	font-weight: normal;
+	position: absolute;
+	left: 50%;
+	text-decoration: underline;
+	transform: translateX(-50%);
+	z-index: 1;
+	bottom: 80px;
+	width: 170px;
+}
+
+.hero a:active {
+	color: black;
+}
+
+.hero a:visited {
+	color: black;
+}
+
+.hero svg {
+	width: 60px;
+	left: 50%;
+	transform: translateX(-50%) rotate(180deg);
+	z-index: 1;
+	bottom: 40px;
+	position: absolute;
+}
+
+/* WORK GRID */
+.filter-outer {
+	text-align: center;
+}
+
+.tax-filter {
+	display: block;
+	font-weight: bold;
+	font-size: 1.5em;
+	margin: 0px 15px;
+}
+
+@media all and (min-width: 600px) {
+	.tax-filter {
+		display:inline-block;
+		font-size: 2em;
+	}
+}
+
+.filters {
+	padding: 10px;
+	border: 2px solid grey;
+	border-radius: 5px;
+	display:block;
+	margin: 25px 0;
+}
+
+.searchandfilter {
+	display: block;
+}
+
+@media all and (min-width: 600px) {
+	.searchandfilter {
+		display: inline-block;
+	}
+}
+
+.filters p {
+	margin: 15px 0 15px 5px;
+	font-size: 1.2em;
+}
+
+@media all and (min-width: 600px) {
+	.filters p {
+		display: inline-block;
+		margin-right: 15px;
+		width: 30%;
+	}
+}
+
+@media all and (min-width: 600px) {
+	.filters h4 {
+		display: inline-block;
+		margin: 0 20px;
+	}
+}
+
+.filters .isOpen {
+	display: block
+}
+
+.filters ul {
+	margin:0;
+	padding:0;
+}
+
+.filters input[type="text"] {
+	margin: 0;
+	width: 100%;
+	display: block;
+} 
+
+/* @media all and (min-width:600px){
+	.filters input[type="text"] {
+		display: inline-block;
+		width: 33%;
+	}
+} */
+
+.filters ul > li > ul {
+	padding-left: 5px;
+}
+
+.filters ul > li input[type="submit"] {
+	margin-top: 15px;
+	font-size: 1em;
+	box-sizing: border-box;
+}
+/* SUBMIT PAGE */
