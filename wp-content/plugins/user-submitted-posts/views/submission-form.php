@@ -39,7 +39,7 @@ else :
 
 <!-- User Submitted Posts @ https://m0n.co/usp -->
 
-<div id="user-submitted-posts">
+<div id="user-submitted-posts" class="user-submitted-posts">
 	<?php if ($usp_options['usp_form_content'] !== '') echo $usp_options['usp_form_content']; ?>
 	
 	<form id="usp_form" method="post" enctype="multipart/form-data" action="">
@@ -58,15 +58,9 @@ else :
 		</fieldset>
 		<?php } if (($usp_options['usp_url'] == 'show' || $usp_options['usp_url'] == 'optn') && ($usp_display_url)) { ?>
 		
-		<fieldset class="usp-url">
-			<label for="user-submitted-url"><?php esc_html_e('Your URL', 'usp'); ?></label>
-			<input id="user-submitted-url" name="user-submitted-url" type="text" value="" placeholder="<?php esc_attr_e('Your URL', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $usp_required; ?> class="usp-input">
-		</fieldset>
-		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
-		
 		<fieldset class="usp-email">
-			<label for="user-submitted-email"><?php esc_html_e('Your Email', 'usp'); ?></label>
-			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-email"><?php esc_html_e('Your social media link', 'usp'); ?></label>
+			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your social media link', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
@@ -133,7 +127,7 @@ else :
 			<?php } else { ?>
 				
 			<label for="user-submitted-content"><?php esc_html_e('Submission Description', 'usp'); ?></label>
-			<textarea id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
+			<textarea maxlength="1200" id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Submission Blurb (Max 250 words)', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
 			<?php } ?>
 			
 		</fieldset>
@@ -173,6 +167,14 @@ else :
 			<input type="hidden" class="usp-hidden" id="usp-min-images" name="usp-min-images" value="<?php echo $usp_options['min-images']; ?>">
 			<input type="hidden" class="usp-hidden" id="usp-max-images" name="usp-max-images" value="<?php echo $usp_options['max-images']; ?>">
 		</fieldset>
+
+				
+		<fieldset class="usp-url">
+			<label for="user-submitted-url"><?php esc_html_e('Add video url', 'usp'); ?></label>
+			<input id="user-submitted-url" name="user-submitted-url" type="text" value="" placeholder="<?php esc_attr_e('Add video url', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $usp_required; ?> class="usp-input">
+		</fieldset>
+
+		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
 		<?php } ?>
 		<?php } ?>
 		
@@ -182,7 +184,7 @@ else :
 		</fieldset>
 		
 		<?php echo usp_display_custom_checkbox(); ?>
-		
+		<p class="terms">By submitting you give permission for your work to be displayed on this website. Your work may also be used in promotional materials for the show.</p>
 		<div id="usp-submit">
 			<?php if (!empty($usp_options['redirect-url'])) { ?>
 			

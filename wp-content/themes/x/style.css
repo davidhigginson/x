@@ -74,6 +74,7 @@ html {
 
 body {
 	margin: 0;
+	overflow-x:hidden;
 }
 
 /**
@@ -649,8 +650,14 @@ a:hover, a:active {
 
 .site {
 	margin: 0 auto;
-	max-width: 1480px;
 	padding: 0;
+}
+
+.grid-container {
+	max-width: 1480px;
+}
+.site-content {
+	overflow-x:hidden;
 }
 
 .site-main .comment-navigation, .site-main
@@ -935,12 +942,110 @@ object {
 }
 /* DAVES CSS */
 
-.header-outer {
-	display: flex;
-	align-items: center;
+.terms {
+	font-size: 0.8em;
+	margin-top: 10px;
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.left {
+	width: 100%;
+	overflow: hidden;
+}
+
+@media all and (min-width: 850px) {
+	.left {
+		width: 45vw;
+		display: inline-block;
+		min-height: 100vh;
+	}
+}
+
+.black {
+	background-color: black;
+	color: white;
+}
+
+.black .usp-login p, .black .usp-login label, .black .usp-login h3, .black .usp-login div, .black .usp-login  a {
+	color: white !important; 
+}
+
+.left-inner {
 	position: relative;
-	z-index: 1;
-	/* background-color: white; */
+	padding:0 5vw;
+	margin: 0 auto;
+	text-align:left;
+	height:100%;
+	top: 200px;
+	margin-bottom: 250px;
+}
+
+@media all and (min-width: 1400px) {
+	.left-inner {
+		padding: 0 10vw;
+		margin-bottom: none;
+	}
+}
+
+.right {
+	width: 100vw;
+	position: relative;
+}
+
+@media all and (min-width: 850px) {
+	.right {
+		width:55vw;
+		position: absolute;
+		height: 100%;
+		display:inline-block;
+		padding-bottom: none;
+	}
+}
+
+.right-inner {
+	position: relative;
+	padding:0 5vw;
+	margin: 0 auto;
+	text-align:left;
+	top: 15vh;
+}
+
+@media all and (min-width: 1400px) {
+	.right-inner {
+		padding: 0 10vw;
+	}
+}
+
+.header-outer {
+	position: absolute;
+	margin-bottom: -50px;
+	z-index: 2;
+	width:100vw;
+}
+
+@media all and (min-width: 850px) {
+	.header-outer {
+		width:45vw;
+	}
+}
+
+.button {
+	text-align: center;
+	text-decoration: none;
+	padding: 8px 15px;
+	color: black;
+	background-color:white;
+}
+
+.button:hover {
+	text-decoration: none;
+	border: 2px solid white;
+	background-color: black;
+	color: white;
 }
 
 /* NAV */
@@ -1030,12 +1135,6 @@ object {
 	text-align: center;
 }
 
-.site-branding {
-	flex-grow:1;
-	display:flex;
-	align-items: center;
-}
-
  .site-title {
  	font-size: 4em;
 	font-weight: 500;
@@ -1061,19 +1160,20 @@ object {
 }
 
  .site-description {
-	 display: none;
-	 margin: 0;
+	 color: white;
+	 margin: 0 auto;
 	 text-align: center;
+	 width: 150px;
+	 line-height:1.2;
+	 position: relative;
+	 top: 6vh;
+	 z-index: 2;
  }
 
- @media all and (min-width: 600px) {
-	.site-description {
-		display: inline-block;
-		flex: 1;
-		position: relative;
-		left: 50px;
-	}
+.site-branding a {
+	text-decoration: none;
 }
+
 .entry-title {
 	margin-bottom:-30px;
 	font-weight: normal;
@@ -1087,7 +1187,7 @@ object {
 
 .hero {
 	height: 90vh;
-	overflow:hidden;
+	overflow-x:hidden;
 }
 
 .hero img {
@@ -1095,11 +1195,28 @@ object {
 	margin: 0 auto;
 	left: 50%;
 	min-width: 800px;
-	min-height:800px;
-	height: 80vh;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	height: 100vh;
 	z-index:0;
+	transform: translateX(-50%);
+	overflow-x: hidden;
+	top: 0;
+}
+
+@media all and (min-height:800px) {
+	.hero img {
+		min-width: 800px;
+		min-height:800px;
+		height: 80vh;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		left: 50%;
+	}
+}
+
+.hero-video {
+	overflow: hidden;
+	min-height: 100%;
+	max-height:100vh;
 }
 
 .hero h2 {
@@ -1131,6 +1248,10 @@ object {
 }
 
 /* WORK GRID */
+.work-item {
+	margin-bottom: 15px;
+}
+
 .filter-outer {
 	text-align: center;
 }
@@ -1202,13 +1323,6 @@ object {
 	display: block;
 } 
 
-/* @media all and (min-width:600px){
-	.filters input[type="text"] {
-		display: inline-block;
-		width: 33%;
-	}
-} */
-
 .filters ul > li > ul {
 	padding-left: 5px;
 }
@@ -1219,3 +1333,47 @@ object {
 	box-sizing: border-box;
 }
 /* SUBMIT PAGE */
+
+.user-submitted-posts {
+	margin-top: -20px;
+}
+
+.user-submitted-posts label {
+	display: none !important;
+}
+
+.usp-checkbox label {
+	display: inline-block !important;
+}
+
+#user-submitted-checkbox {
+	display: none !important;
+}
+
+.user-submitted-posts input[type="text"] {
+	border: none;
+	border-bottom: 2px solid black;
+	margin-bottom: 20px;
+}
+
+.user-submitted-posts input.usp-input {
+	width: 100% !important;
+}
+
+/* Footer */
+
+footer p {
+	text-align: center;
+	font-size: 0.8em;
+}
+
+.footer-credit {
+	width: 100%;
+}
+
+@media all and (min-width: 850px) {
+	.footer-credit {
+		width: 50vw;
+		display: inline-block;
+	}
+}

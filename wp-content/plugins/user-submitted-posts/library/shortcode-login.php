@@ -34,7 +34,10 @@ function usp_login_form() {
 
 		.usp-login { font-family: 'Work Sans';}
 		
-		.usp-login { width: 370px; overflow: hidden; margin: 50px auto; padding: 10px; color: #333; font-size: 12px; line-height: 16px; text-shadow: 0 0 1px #fff; }
+		.usp-login {
+			width: 100%; overflow: hidden; color: #333; font-size: 12px; line-height: 16px; text-shadow: 0 0 1px #fff;
+
+		}
 		.usp-login h1 { margin: 20px 0 10px 20px; font: 400 32px/32px sans-serif; -webkit-font-smoothing: antialiased; }
 		.usp-login h3 { margin: 0; border: 0 none; font-size: 14px; line-height: 14px; font-weight: normal; }
 		.usp-login p { margin: 10px 0; color: #333; }
@@ -44,7 +47,7 @@ function usp_login_form() {
 		.usp-login .tabs_login li a { height: 30px; display: block; padding: 0 15px; line-height: 30px; text-decoration: none; border: none; color: #777; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg-alt.png); }
 		.usp-login .tabs_login li a:hover { color: #555; }
 		.usp-login .tabs_login li.active_tab a { font-weight: bold; color: #333; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg.png); }
-		.usp-login .tab_container { width: 100%; float: left; margin: 0 0 20px 0; background-color: #fff; border: none; }
+		.usp-login .tab_container { width: 100%; float: left; margin: 0 0 20px 0; border: none; }
 		.usp-login .tab_content { padding: 20px; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg.png); }
 		
 		.usp-login .username, .usp-login .password, .usp-login .login_fields { width: 100%; overflow: hidden; margin: 7px 0 0 0; padding: 3px 0; }
@@ -55,7 +58,7 @@ function usp_login_form() {
 		.usp-login .rememberme input { float: left; margin: 2px 7px 0 0; }
 		.usp-login .user-submit { float: left; margin: 5px 0 0 0; }
 		
-		.usp-login .user-logged-in { width: 330px; overflow: hidden; padding: 20px; color: #333; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg.png); }
+		.usp-login .user-logged-in { width: 330px; overflow: hidden; margin: 8px 8px 15px 8px; border-bottom: 1px solid rgba(0,0,0,0.2); color: #333; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg.png); }
 		.usp-login .user-icon { float: left; width: 80px; padding: 20px 0 0 0; }
 		.usp-login .user-icon img { width: 60px; height: 60px; box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.7); }
 		.usp-login .user-info { float: left; width: 240px; padding: 20px 0 0 0; }
@@ -130,7 +133,7 @@ function usp_login_form() {
 			</div>
 			<div id="tab2_login" class="tab_content">
 				<h3><?php esc_html_e('Register an account', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Sign up using your University email.', 'usp-pro'); ?></p>
+				<p><?php esc_html_e('Sign up with your email.', 'usp-pro'); ?></p>
 				<form method="post" action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>">
 					<div class="username">
 						<label for="user_login_register"><?php esc_html_e('Username', 'usp-pro'); ?>: </label>
@@ -138,7 +141,7 @@ function usp_login_form() {
 					</div>
 					<div class="password">
 						<label for="user_email"><?php esc_html_e('Your Email', 'usp-pro'); ?>: </label>
-						<input name="user_email" id="user_email" type="text" value="" placeholder="xx15yy@leeds.ac.uk">
+						<input name="user_email" id="user_email" type="text" value="" placeholder="johndoe@example.com">
 					</div>
 					<div class="login_fields">
 						<input type="submit" name="user-submit" value="<?php esc_attr_e('Sign up', 'usp-pro'); ?>" class="user-submit">
@@ -177,7 +180,7 @@ function usp_login_form() {
 				<p>
 					<a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php esc_html_e('Log out', 'usp-pro'); ?></a><span class="usp-sep"> | </span>
 					<?php if (current_user_can('manage_options')) echo '<a href="'. admin_url() .'">'. esc_html__('Admin', 'usp-pro') .'</a>'; 
-					else echo '<a href="'. admin_url() .'profile.php">'. esc_html__('Profile', 'usp-pro') .'</a>'; ?>
+					else echo ''; ?>
 				</p>
 			</div>
 		</div>
