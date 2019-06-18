@@ -36,7 +36,7 @@ function usp_login_form() {
 		
 		.usp-login {
 			width: 100%; overflow: hidden; color: #333; font-size: 12px; line-height: 16px; text-shadow: 0 0 1px #fff;
-
+			
 		}
 		.usp-login h1 { margin: 20px 0 10px 20px; font: 400 32px/32px sans-serif; -webkit-font-smoothing: antialiased; }
 		.usp-login h3 { margin: 0; border: 0 none; font-size: 14px; line-height: 14px; font-weight: normal; }
@@ -44,7 +44,7 @@ function usp_login_form() {
 		
 		.usp-login .tabs_login { float: left; margin: 0; padding: 0; list-style-type: none; }
 		.usp-login .tabs_login li { float: left; overflow: hidden; margin: 0 5px 0 0; padding: 0; }
-		.usp-login .tabs_login li a { height: 30px; display: block; padding: 0 15px; line-height: 30px; text-decoration: none; border: none; color: #777; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg-alt.png); }
+		.usp-login .tabs_login li a { height: 30px; display: block; padding: 0 15px; line-height: 30px; text-decoration: underline; border: none; color: #777; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg-alt.png); }
 		.usp-login .tabs_login li a:hover { color: #555; }
 		.usp-login .tabs_login li.active_tab a { font-weight: bold; color: #333; background: url(<?php echo plugins_url(); ?>/usp-pro/img/usp-login-bg.png); }
 		.usp-login .tab_container { width: 100%; float: left; margin: 0 0 20px 0; border: none; }
@@ -96,8 +96,8 @@ function usp_login_form() {
 				<?php if ($register) : ?>
 				
 				<h3><?php esc_html_e('Success!', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Check your email for the password.', 'usp-pro'); ?></p>
-				
+				<p><?php esc_html_e('Check your email (especially your Junk folder) for the password.' , 'usp-pro'); ?></p>
+	
 				<?php elseif ($reset) : ?>
 				
 				<h3><?php esc_html_e('Success!', 'usp-pro'); ?></h3>
@@ -178,7 +178,7 @@ function usp_login_form() {
 			<div class="user-info">
 				<p><?php esc_html_e('Congratulations, you&rsquo;re logged in.', 'usp-pro'); ?></p>
 				<p>
-					<a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php esc_html_e('Log out', 'usp-pro'); ?></a><span class="usp-sep"> | </span>
+					<a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php esc_html_e('Log out', 'usp-pro'); ?></a><span class="usp-sep"> </span>
 					<?php if (current_user_can('manage_options')) echo '<a href="'. admin_url() .'">'. esc_html__('Admin', 'usp-pro') .'</a>'; 
 					else echo ''; ?>
 				</p>

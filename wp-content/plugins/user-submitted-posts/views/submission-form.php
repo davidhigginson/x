@@ -43,6 +43,7 @@ else :
 	<?php if ($usp_options['usp_form_content'] !== '') echo $usp_options['usp_form_content']; ?>
 	
 	<form id="usp_form" method="post" enctype="multipart/form-data" action="">
+		<h3>Submission Form:</h3>
 		<div id="usp-error-message" class="usp-callout-failure usp-hidden"><?php esc_html_e('Please complete the required fields.', 'usp'); ?></div>
 		<?php echo usp_error_message();
 		
@@ -59,8 +60,8 @@ else :
 		<?php } if (($usp_options['usp_url'] == 'show' || $usp_options['usp_url'] == 'optn') && ($usp_display_url)) { ?>
 		
 		<fieldset class="usp-email">
-			<label for="user-submitted-email"><?php esc_html_e('Your social media link', 'usp'); ?></label>
-			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your social media link', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-email"><?php esc_html_e('Your portfolio/Behance/Instagram link', 'usp'); ?></label>
+			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your portfolio/Behance/Instagram link', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
@@ -73,6 +74,7 @@ else :
 		<fieldset class="usp-tags">
 			<label for="user-submitted-tags"><?php esc_html_e('Submission Tags', 'usp'); ?></label>
 			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Submission Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
+			<p class="tags-instruction">These should be comma separated (e.g: 'Pattern Design, Typography')</p>
 		</fieldset>
 		<?php } if ($usp_options['custom_field'] == 'show' || $usp_options['custom_field'] == 'optn') { ?>
 		
@@ -140,6 +142,7 @@ else :
 		<?php if ($usp_options['max-images'] !== 0) { ?>
 		
 		<fieldset class="usp-images">
+			<h3>Hero image:</h3>
 			<label for="user-submitted-image"><?php esc_html_e('Upload an Image', 'usp'); ?></label>
 			<div id="usp-upload-message"><?php esc_html_e($usp_options['upload-message'], 'usp'); ?></div>
 			<div id="user-submitted-image">
@@ -149,7 +152,7 @@ else :
 			$usp_maxImages = intval($usp_options['max-images']);
 			$usp_addAnother = $usp_options['usp_add_another'];
 			
-			if (empty($usp_addAnother)) $usp_addAnother = '<a href="#" id="usp_add-another" class="usp-no-js">'. esc_html__('Add another image', 'usp') .'</a>';
+			if (empty($usp_addAnother)) $usp_addAnother = '<h3>Supporting imagery:</h3><a href="#" id="usp_add-another" class="usp-no-js">'. esc_html__('Add another image', 'usp') .'</a>';
 			
 			if ($usp_minImages > 0) : ?>
 				<?php for ($i = 0; $i < $usp_minImages; $i++) : ?>

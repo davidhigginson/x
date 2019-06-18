@@ -27,16 +27,17 @@ get_header();
 
 			<div class="right black">
 				<div class="right-inner">
-					<p>Register for an account using the form on the left. This does not have to be your university email.</p>
-					<p>Log in, and use the form to submit your work</p>
 					<div class="idiot-proof">
-						<p>Your name will be displayed next to your work, this can be your artist pseudonym instead</p>
-						<p>Add the title of your work and type in a list of relevant tags, seperated by spaces.</p>
-						<p>Select your course, and use the text area to add up to 250 words about your work</p>
-						<div class="idiot-proof__images">
-							<p>Click 'Choose File' to upload your first image. Upload a square .jpg file (1000x1000px). This could be a single photo of your work, or a montage of several images. This first image will appear here, and as the thumbnail when a grid of work is displayed.</p>
-							<p>Optionally - click 'Add another image', to keep adding more supporting photos. These will appear below your main 'hero' image, on this side of the page.</p>
-						</div>
+						<p>To submit work, register or log in using the form. Once logged in, return to this page and the submission form will be visible</p>
+
+						<h3>Hero image:</h3>
+						<p>Your hero image will appear as the main image when you first visit your profile, and as your thumbnail across the rest of the site. Hero images MUST be square, at the highest quality you can produce, and a minimum of 1000x1000 pixels (images may not exceed 1500 pixels in width).</p>
+							
+						<h3>Supporting media:</h3>
+						<p>Supporting media will show on your profile below the hero image, and is not mandatory to add. You can upload up to 5 images of any shape, and submit a link to a Youtube/Vimeo video of your work that will be embedded in your profile.</p>
+
+						<p>If you have any questions, please email <a href="mailto:info@makingourmark.degree">info@makingourmark.degree</a>
+
 					</div>
 				</div>
 			</div>
@@ -48,20 +49,19 @@ get_header();
 			top: 2vh;
 			color:black;
 		}
-		.left-inner {
-			top: 22vh;
-			margin-bottom: 280px;
-		}
 		.left {
 			overflow:hidden;
 		}
 		.right {
 			padding-bottom: 200px;
 		}
-
+		.left-inner {
+			top: 22vh;
+			margin-bottom: 280px;
+		}
 		@media all and (min-width: 1400px) {
 			.left-inner {
-				margin-bottom: 200px;
+				margin-bottom: 250px;
 			}
 		}
 	</style>

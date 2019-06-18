@@ -37,7 +37,7 @@
 					$crossroad_description = get_bloginfo( 'description', 'display' );
 					if ( $crossroad_description || is_customize_preview() ) :
 						?>
-						<a href="<?php echo get_home_url() ?>"><h1 class="display site-description"><?php bloginfo( 'description' ); ?></h1></a>
+						<a class="header-link" href="<?php echo get_home_url() ?>"><h1 class="display site-description"><?php bloginfo( 'description' ); ?></h1></a>
 					<?php endif; ?>
 				</div>
 			</div>

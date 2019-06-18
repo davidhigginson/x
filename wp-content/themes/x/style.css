@@ -653,6 +653,10 @@ a:hover, a:active {
 	padding: 0;
 }
 
+.site-main {
+	position: relative;
+}
+
 .grid-container {
 	max-width: 1480px;
 }
@@ -957,6 +961,7 @@ object {
 	overflow: hidden;
 }
 
+
 @media all and (min-width: 850px) {
 	.left {
 		width: 45vw;
@@ -976,17 +981,19 @@ object {
 
 .left-inner {
 	position: relative;
-	padding:0 5vw;
+	padding:0 4vw;
 	margin: 0 auto;
 	text-align:left;
 	height:100%;
 	top: 200px;
 	margin-bottom: 250px;
+	overflow:visible;
 }
 
 @media all and (min-width: 1400px) {
 	.left-inner {
-		padding: 0 10vw;
+		overflow:visible;
+		padding: 0 4vw;
 		margin-bottom: none;
 	}
 }
@@ -994,6 +1001,10 @@ object {
 .right {
 	width: 100vw;
 	position: relative;
+}
+
+.right-scroll {
+	overflow: scroll;
 }
 
 @media all and (min-width: 850px) {
@@ -1037,15 +1048,16 @@ object {
 	text-align: center;
 	text-decoration: none;
 	padding: 8px 15px;
-	color: black;
-	background-color:white;
+	color:white !important;
+	background-color:black;
 }
 
 .button:hover {
 	text-decoration: none;
-	border: 2px solid white;
-	background-color: black;
-	color: white;
+	border: 2px solid black;
+	padding: 6px 13px;
+	background-color: white;
+	color: black !important;
 }
 
 /* NAV */
@@ -1160,7 +1172,7 @@ object {
 }
 
  .site-description {
-	 color: white;
+	 color: black;
 	 margin: 0 auto;
 	 text-align: center;
 	 width: 150px;
@@ -1170,12 +1182,11 @@ object {
 	 z-index: 2;
  }
 
-.site-branding a {
+.site-branding a.header-link {
 	text-decoration: none;
 }
 
 .entry-title {
-	margin-bottom:-30px;
 	font-weight: normal;
 }
 
@@ -1249,11 +1260,56 @@ object {
 
 /* WORK GRID */
 .work-item {
-	margin-bottom: 15px;
+	margin: -10px;
+	padding: 0px;
+	background-color: black;
+	position: relative;
+	overflow: hidden;
+}
+
+.work-item:before {
+	content: "";
+	display: block;
+	padding-top: 100%; 	
+}
+
+.work-item a span {
+	display: none;
+	color: white;
+	opacity: 1;
+	z-index: 2;
+}
+
+.work-item img {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 110%;
+	height: 110%;
+	right: 0;
+}
+
+.work-item a:hover span {
+	display: block;
+	position: absolute;
+	text-align: center;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.work-item a:hover img {
+	opacity: 0.5
 }
 
 .filter-outer {
 	text-align: center;
+}
+
+.filter-outer a {
+	display: inline;
+	font-size: 1.4em;
 }
 
 .tax-filter {
@@ -1282,30 +1338,9 @@ object {
 	display: block;
 }
 
-@media all and (min-width: 600px) {
-	.searchandfilter {
-		display: inline-block;
-	}
-}
-
 .filters p {
-	margin: 15px 0 15px 5px;
+	margin: 5px 0 10px 5px;
 	font-size: 1.2em;
-}
-
-@media all and (min-width: 600px) {
-	.filters p {
-		display: inline-block;
-		margin-right: 15px;
-		width: 30%;
-	}
-}
-
-@media all and (min-width: 600px) {
-	.filters h4 {
-		display: inline-block;
-		margin: 0 20px;
-	}
 }
 
 .filters .isOpen {
@@ -1360,6 +1395,21 @@ object {
 	width: 100% !important;
 }
 
+.idiot-proof p a {
+	color: white;
+	text-decoration: none;
+	display: inline;
+}
+
+.idiot-proof p a:hover {
+	text-decoration: underline;
+}
+
+.tags-instruction {
+	font-size: 12px;
+	margin: 10px 0;
+}
+
 /* Footer */
 
 footer p {
@@ -1373,7 +1423,7 @@ footer p {
 
 @media all and (min-width: 850px) {
 	.footer-credit {
-		width: 50vw;
+		width: 40vw;
 		display: inline-block;
 	}
 }

@@ -679,7 +679,7 @@ function usp_add_defaults() {
 			'usp_casing'           => 0,
 			'usp_captcha'          => 'show',
 			'usp_content'          => 'show',
-			'success-message'      => esc_html__('Success! Thank you for your submission.', 'usp'),
+			'success-message'      => esc_html__('Success! Thank you for your submission. If you want to change or add something to your submission, please submit the form again. We will only display your most recent submission.', 'usp'),
 			'usp_form_version'     => 'current',
 			'usp_email_alerts'     => 1,
 			'usp_email_html'       => 0,

@@ -14,16 +14,26 @@ get_header();
 		<main id="main" class="site-main">
 			<div class="grid-container">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+				<div class="left left-fixed">
+					<div class="left-inner">
+					<h1><?php usp_author_link(); ?></h1>
+					<?php
+					while ( have_posts() ) :
+						the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+						get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
+						the_post_navigation();
 
-		endwhile; // End of the loop.
-		?>
+					endwhile; // End of the loop.
+					?>
+					</div>
+				</div>
+
+				<div class="right right-scroll">
+					<?php if (function_exists('usp_get_images')) $images = usp_get_images(); foreach ($images as $image) echo $image; ?>
+
+				</div>
 
 			</div>
 		</main><!-- #main -->
