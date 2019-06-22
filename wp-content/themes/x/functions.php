@@ -188,7 +188,7 @@ function ajax_filter_get_posts( $taxonomy ) {
   $args = array(
 		'category_name' => $taxonomy,
     'post_type' => 'post',
-    'posts_per_page' => 10,
+    'posts_per_page' => 1000,
   );
   echo $taxonomy;
   // If taxonomy is not set, remove key from array and get all posts
@@ -199,11 +199,11 @@ function ajax_filter_get_posts( $taxonomy ) {
   $query = new WP_Query( $args );
 
   if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-	<div class="grid-25 tablet-grid-33 mobile-grid-50">
-	<a href="<?php the_permalink(); ?>">
-	<?php  if ( has_post_thumbnail() ) { $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),’thumbnail’ ); echo '<img width="100%" src="' . $image_src[0] . '">'; } ?>
-	<span><?php the_title(); ?></span>
-	</a>
+	<div class="work-item grid-33 tablet-grid-33 mobile-grid-50">
+		<a href="<?php the_permalink(); ?>">
+			<?php  if ( has_post_thumbnail() ) { $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),’thumbnail’ ); echo '<img width="100%" src="' . $image_src[0] . '">'; } ?>
+			<span><?php usp_author_link(); ?></span>
+		</a>
 	</div>
 
   <?php endwhile; ?>

@@ -542,21 +542,23 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
+	border-color: #ccc;
 	border-radius: 3px;
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	font-size: 12px;
 	font-size: 0.75rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
+	padding: 10px 15px;
+	outline: 0;
+	cursor: pointer;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
+	background: #d8d8d8;
 }
 
 button:active, button:focus,
@@ -566,7 +568,8 @@ input[type="reset"]:active,
 input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
+	border-color: #111;
+	outline: 0;
 }
 
 input[type="text"],
@@ -588,7 +591,8 @@ textarea {
 	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 10px;
+	width: 100%;
 }
 
 input[type="text"]:focus,
@@ -608,10 +612,21 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
 	color: #111;
+	outline: 0;
+	border-color: #111;
 }
 
 select {
 	border: 1px solid #ccc;
+	height: 45px;
+	padding: 0 15px;
+	width: 100%;
+	background: #fff;
+}
+
+select:focus {
+	border-color: #111;
+	outline: 0;
 }
 
 textarea {
@@ -659,6 +674,7 @@ a:hover, a:active {
 
 .grid-container {
 	max-width: 1480px;
+	height: 100%;
 }
 .site-content {
 	overflow-x:hidden;
@@ -976,7 +992,7 @@ object {
 }
 
 .black .usp-login p, .black .usp-login label, .black .usp-login h3, .black .usp-login div, .black .usp-login  a {
-	color: white !important; 
+	color: white !important;
 }
 
 .left-inner {
@@ -1058,6 +1074,7 @@ object {
 	padding: 6px 13px;
 	background-color: white;
 	color: black !important;
+	outline: 0;
 }
 
 /* NAV */
@@ -1260,17 +1277,27 @@ object {
 
 /* WORK GRID */
 .work-item {
-	margin: -10px;
-	padding: 0px;
 	background-color: black;
-	position: relative;
-	overflow: hidden;
+	padding: 0;
 }
 
-.work-item:before {
-	content: "";
+.work-item a {
 	display: block;
-	padding-top: 100%; 	
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+}
+
+.work-item img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-position: center;
+	object-fit: cover;
 }
 
 .work-item a span {
@@ -1278,16 +1305,6 @@ object {
 	color: white;
 	opacity: 1;
 	z-index: 2;
-}
-
-.work-item img {
-	position:  absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	width: 110%;
-	height: 110%;
-	right: 0;
 }
 
 .work-item a:hover span {
@@ -1327,19 +1344,22 @@ object {
 }
 
 .filters {
-	padding: 10px;
+	padding: 15px;
 	border: 2px solid grey;
 	border-radius: 5px;
 	display:block;
 	margin: 25px 0;
 }
 
-.searchandfilter {
+.searchandfilter,
+.searchandfilter ul,
+.searchandfilter li {
 	display: block;
+	padding-right: 0;
 }
 
 .filters p {
-	margin: 5px 0 10px 5px;
+	margin: 0 0 10px 5px;
 	font-size: 1.2em;
 }
 
@@ -1356,14 +1376,14 @@ object {
 	margin: 0;
 	width: 100%;
 	display: block;
-} 
+}
 
 .filters ul > li > ul {
 	padding-left: 5px;
 }
 
 .filters ul > li input[type="submit"] {
-	margin-top: 15px;
+	margin-top: 20px;
 	font-size: 1em;
 	box-sizing: border-box;
 }
@@ -1426,4 +1446,31 @@ footer p {
 		width: 40vw;
 		display: inline-block;
 	}
+}
+
+/* Hides annoying title */
+.tagged-posts {
+	text-indent: -9999px;
+}
+
+.tagged-posts * {
+	text-indent: initial;
+}
+
+.no-results {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	padding: 100px;
+	text-align: center;
+}
+
+.no-results .page-content p,
+.no-results .page-content {
+	margin: 0;
+}
+
+.home-blurb {
+	margin: 40px 0;
 }

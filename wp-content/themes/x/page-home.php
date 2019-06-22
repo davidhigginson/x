@@ -24,13 +24,13 @@ get_header();
             <div class="center">
             <!-- <a href="<?php echo get_permalink() ?>/submit" class="button">Submit Work</a> -->
             </div>
-            
+
             <div class="filters" id="work">
             <p>Search & Tags</p>
             <?php echo do_shortcode('[searchandfilter fields="search,post_tag" types=",select" headings=",Tags"]'); ?>
             </div>
 
-            <?php 
+            <?php
           $getdate = getdate();
           $args = array(
                 'post_type' => 'post',
@@ -58,7 +58,7 @@ get_header();
               </div>
           <?php endif; ?>
 
-            <p><?php the_field('home_blurb'); ?></p>
+            <p class="home-blurb"><?php the_field('home_blurb'); ?></p>
 
             <!-- <a href="<?php echo get_permalink() ?>/submit" class="button">Join the mailing list</a> -->
             <a href="https://www.instagram.com/makingourmark.degreeshow/" class="button">Follow our instagram</a>
@@ -71,7 +71,7 @@ get_header();
 
       <div class="right right-scroll">
 
-        <?php 
+        <?php
           $getdate = getdate();
           $args = array(
                 'post_type' => 'post',
@@ -92,7 +92,7 @@ get_header();
           if ( $count > 0 ): ?>
           <?php endif;
           if ( $query->have_posts() ): ?>
-         
+
           <div class="tagged-posts">
             <div class="grid-container">
               <?php while ( $query->have_posts() ) : $query->the_post(); ?>
