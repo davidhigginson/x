@@ -14,6 +14,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="grid-container">
 		<div class="site-info">
 <!-- 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'crossroad' ) ); ?>">
 				<?php
@@ -27,7 +28,8 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'crossroad' ), 'crossroad', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
 		</div><!-- .site-info -->
-		<p>Made by UoL G&CD class of 2019</p>
+		<p class="footer-credit">Made by UoL G&CD class of 2019</p>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

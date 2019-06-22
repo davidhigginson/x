@@ -12,23 +12,30 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			<div class="grid-container">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+				<div class="left left-fixed">
+					<div class="left-inner">
+					<h1><?php usp_author_link(); ?></h1>
+					<?php
+					while ( have_posts() ) :
+						the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+						get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
+						the_post_navigation();
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+					endwhile; // End of the loop.
+					?>
+					</div>
+				</div>
 
-		endwhile; // End of the loop.
-		?>
+				<div class="right right-scroll">
+					<?php if (function_exists('usp_get_images')) $images = usp_get_images(); foreach ($images as $image) echo $image; ?>
 
+				</div>
+
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

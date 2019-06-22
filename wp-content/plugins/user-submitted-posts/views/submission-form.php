@@ -39,10 +39,11 @@ else :
 
 <!-- User Submitted Posts @ https://m0n.co/usp -->
 
-<div id="user-submitted-posts">
+<div id="user-submitted-posts" class="user-submitted-posts">
 	<?php if ($usp_options['usp_form_content'] !== '') echo $usp_options['usp_form_content']; ?>
 	
 	<form id="usp_form" method="post" enctype="multipart/form-data" action="">
+		<h3>Submission Form:</h3>
 		<div id="usp-error-message" class="usp-callout-failure usp-hidden"><?php esc_html_e('Please complete the required fields.', 'usp'); ?></div>
 		<?php echo usp_error_message();
 		
@@ -58,27 +59,22 @@ else :
 		</fieldset>
 		<?php } if (($usp_options['usp_url'] == 'show' || $usp_options['usp_url'] == 'optn') && ($usp_display_url)) { ?>
 		
-		<fieldset class="usp-url">
-			<label for="user-submitted-url"><?php esc_html_e('Your URL', 'usp'); ?></label>
-			<input id="user-submitted-url" name="user-submitted-url" type="text" value="" placeholder="<?php esc_attr_e('Your URL', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $usp_required; ?> class="usp-input">
-		</fieldset>
-		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
-		
 		<fieldset class="usp-email">
-			<label for="user-submitted-email"><?php esc_html_e('Your Email', 'usp'); ?></label>
-			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-email"><?php esc_html_e('Your portfolio/Behance/Instagram link', 'usp'); ?></label>
+			<input id="user-submitted-email" name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your portfolio/Behance/Instagram link', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
 		<fieldset class="usp-title">
-			<label for="user-submitted-title"><?php esc_html_e('Post Title', 'usp'); ?></label>
-			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-title"><?php esc_html_e('Submission Title', 'usp'); ?></label>
+			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Submission Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_tags'] == 'show' || $usp_options['usp_tags'] == 'optn') { ?>
 		
 		<fieldset class="usp-tags">
-			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
-			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
+			<label for="user-submitted-tags"><?php esc_html_e('Submission Tags', 'usp'); ?></label>
+			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Submission Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
+			<p class="tags-instruction">These should be comma separated (e.g: 'Pattern Design, Typography')</p>
 		</fieldset>
 		<?php } if ($usp_options['custom_field'] == 'show' || $usp_options['custom_field'] == 'optn') { ?>
 		
@@ -95,9 +91,9 @@ else :
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
 		
 		<fieldset class="usp-category">
-			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
+			<label for="user-submitted-category"><?php esc_html_e('Select your course', 'usp'); ?></label>
 			<select id="user-submitted-category" name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; ?> class="usp-select">
-				<option value=""><?php esc_html_e('Please select a category..', 'usp'); ?></option>
+				<option value=""><?php esc_html_e('Please select a course..', 'usp'); ?></option>
 				<?php foreach($usp_options['categories'] as $categoryId) { $category = get_category($categoryId); if (!$category) { continue; } ?>
 				
 				<option value="<?php echo $categoryId; ?>"><?php $category = get_category($categoryId); echo sanitize_text_field($category->name); ?></option>
@@ -132,8 +128,8 @@ else :
 			</div>
 			<?php } else { ?>
 				
-			<label for="user-submitted-content"><?php esc_html_e('Post Content', 'usp'); ?></label>
-			<textarea id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
+			<label for="user-submitted-content"><?php esc_html_e('Submission Description', 'usp'); ?></label>
+			<textarea maxlength="1200" id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Submission Blurb (Max 250 words)', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
 			<?php } ?>
 			
 		</fieldset>
@@ -146,6 +142,7 @@ else :
 		<?php if ($usp_options['max-images'] !== 0) { ?>
 		
 		<fieldset class="usp-images">
+			<h3>Hero image:</h3>
 			<label for="user-submitted-image"><?php esc_html_e('Upload an Image', 'usp'); ?></label>
 			<div id="usp-upload-message"><?php esc_html_e($usp_options['upload-message'], 'usp'); ?></div>
 			<div id="user-submitted-image">
@@ -155,7 +152,7 @@ else :
 			$usp_maxImages = intval($usp_options['max-images']);
 			$usp_addAnother = $usp_options['usp_add_another'];
 			
-			if (empty($usp_addAnother)) $usp_addAnother = '<a href="#" id="usp_add-another" class="usp-no-js">'. esc_html__('Add another image', 'usp') .'</a>';
+			if (empty($usp_addAnother)) $usp_addAnother = '<h3>Supporting imagery:</h3><a href="#" id="usp_add-another" class="usp-no-js">'. esc_html__('Add another image', 'usp') .'</a>';
 			
 			if ($usp_minImages > 0) : ?>
 				<?php for ($i = 0; $i < $usp_minImages; $i++) : ?>
@@ -173,6 +170,14 @@ else :
 			<input type="hidden" class="usp-hidden" id="usp-min-images" name="usp-min-images" value="<?php echo $usp_options['min-images']; ?>">
 			<input type="hidden" class="usp-hidden" id="usp-max-images" name="usp-max-images" value="<?php echo $usp_options['max-images']; ?>">
 		</fieldset>
+
+				
+		<fieldset class="usp-url">
+			<label for="user-submitted-url"><?php esc_html_e('Add video url', 'usp'); ?></label>
+			<input id="user-submitted-url" name="user-submitted-url" type="text" value="" placeholder="<?php esc_attr_e('Add video url', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $usp_required; ?> class="usp-input">
+		</fieldset>
+
+		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
 		<?php } ?>
 		<?php } ?>
 		
@@ -182,7 +187,7 @@ else :
 		</fieldset>
 		
 		<?php echo usp_display_custom_checkbox(); ?>
-		
+		<p class="terms">By submitting you give permission for your work to be displayed on this website. Your work may also be used in promotional materials for the show.</p>
 		<div id="usp-submit">
 			<?php if (!empty($usp_options['redirect-url'])) { ?>
 			

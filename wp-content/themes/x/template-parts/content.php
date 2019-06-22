@@ -29,9 +29,6 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php crossroad_post_thumbnail(); ?>
-
-
 	<div class="entry-content">
 		<?php
 		the_content( sprintf(

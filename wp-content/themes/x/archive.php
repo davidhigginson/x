@@ -13,14 +13,26 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+		<div class="left">
+			<div class="grid-container">
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+				<div class="left-inner">
+					<div class="center">
+					<!-- <a href="<?php echo get_permalink() ?>/submit" class="button">Submit Work</a> -->
+					</div>
+
+					<div class="filters" id="work">
+						<p>Search & Tags</p>
+						<?php echo do_shortcode('[searchandfilter fields="search,post_tag" types=",select" headings=",Tags"]'); ?>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="right right-scroll">
+
+		<?php if ( have_posts() ) : ?>
 
 			<?php
 			/* Start the Loop */
@@ -32,7 +44,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part( 'template-parts/content', 'search' );
 
 			endwhile;
 
@@ -44,7 +56,7 @@ get_header();
 
 		endif;
 		?>
-
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

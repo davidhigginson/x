@@ -118,24 +118,41 @@ function usp_author_link() {
 	$submissionLink   = get_post_meta($post->ID, 'user_submit_url', true);
 
 	if ($isSubmission && !empty($submissionAuthor)) {
-		
-		if (empty($submissionLink)) {
-			
-			echo '<span class="usp-author-link">' . $submissionAuthor . '</span>';
-			
-		} else {
-			
-			echo '<span class="usp-author-link"><a href="' . $submissionLink . '">' . $submissionAuthor . '</a></span>';
-			
-		}
-		
-	} else {
-		
-		the_author_posts_link();
-		
+
+		echo '<span class="usp-author-link">' . $submissionAuthor . '</span>';
+
 	}
-	
 }
+
+
+function usp_custom_field() {
+	
+	global $post;
+
+	$isSubmission     = get_post_meta($post->ID, 'is_submission', true);
+	$customField = get_post_meta($post->ID, 'usp_custom_field', true);
+
+	if ($isSubmission && !empty($customField)) {
+
+		echo '<span class="usp-custom-field">' . $customField . '</span>';
+
+	}
+}
+
+function usp_email() {
+	
+	global $post;
+
+	$isSubmission     = get_post_meta($post->ID, 'is_submission', true);
+	$uspEmail = get_post_meta($post->ID, 'usp_email', true);
+
+	if ($isSubmission && !empty($uspEmail)) {
+
+		echo '<span class="usp-email">' . $uspEmail . '</span>';
+
+	}
+}
+
 
 
 

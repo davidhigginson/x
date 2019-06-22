@@ -15,15 +15,16 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-		<?php if (function_exists('usp_login_form')) usp_login_form(); ?>
-		<?php if (function_exists('user_submitted_posts')) user_submitted_posts(); ?>
-		<?php if (function_exists('usp_display_posts')) usp_display_posts(); ?>
-		
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="grid-container">
+        <div class="grid-100">
+        <?php if (function_exists('usp_display_posts')) usp_display_posts(); ?>
+        </div>
+      </div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    </main><!-- #main -->
+  </div><!-- #primary -->
 
 <?php
 get_sidebar();
